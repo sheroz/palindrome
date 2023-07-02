@@ -1,0 +1,19 @@
+[package]
+name = "palindrome"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "1"
+unicode-segmentation = "1.9.0"
+
+[dev-dependencies]
+criterion = "0.4"
+
+[[bench]]
+name = "palindrome_benchmark"
+harness = false
+
+
