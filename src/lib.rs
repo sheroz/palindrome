@@ -15,7 +15,6 @@ pub fn is_palindrome_regex(sample: &str) -> bool {
 
     // removing non-word characters
     let clean_txt = re.replace_all(&txt, "").to_string();
-    // println!("clean text: {}", clean_txt);
 
     // reverse the text
     let reverse_txt: String = clean_txt.graphemes(true).rev().collect();
@@ -58,27 +57,29 @@ pub fn is_palindrome_raw(sample: &str) -> bool {
 mod tests {
     #[test]
     fn palindrome_test() {
+        use super::*;
+
         // palindome samples
-        assert!(super::is_palindrome("Madam, I'm Adam!"));
-        assert!(super::is_palindrome("A man, a plan, a canal: Panama!"));
-        assert!(super::is_palindrome("Dammit I’m mad."));
-        assert!(super::is_palindrome("Engage le jeu que je le gagne."));
-        assert!(super::is_palindrome("I topi non avevano nipoti."));
-        assert!(super::is_palindrome("Autore, ero tua."));
-        assert!(super::is_palindrome(
+        assert!(is_palindrome("Madam, I'm Adam!"));
+        assert!(is_palindrome("A man, a plan, a canal: Panama!"));
+        assert!(is_palindrome("Dammit I’m mad."));
+        assert!(is_palindrome("Engage le jeu que je le gagne."));
+        assert!(is_palindrome("I topi non avevano nipoti."));
+        assert!(is_palindrome("Autore, ero tua."));
+        assert!(is_palindrome(
             "Socorram-me subi no onibus em Marrocos."
         ));
-        assert!(super::is_palindrome("A mala nada na lama."));
-        assert!(super::is_palindrome("А тот суп – пустота."));
-        assert!(super::is_palindrome("Нажал кабан на баклажан."));
+        assert!(is_palindrome("A mala nada na lama."));
+        assert!(is_palindrome("А тот суп – пустота."));
+        assert!(is_palindrome("Нажал кабан на баклажан."));
 
         // non-palindome samples
-        assert!(!super::is_palindrome("Lorem ipsum dolor sit amet,"));
-        assert!(!super::is_palindrome("consectetur adipiscing elit,"));
-        assert!(!super::is_palindrome(
+        assert!(!is_palindrome("Lorem ipsum dolor sit amet,"));
+        assert!(!is_palindrome("consectetur adipiscing elit,"));
+        assert!(!is_palindrome(
             "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         ));
-        assert!(!super::is_palindrome("A plan, a man, a canal: Panama!"));
-        assert!(!super::is_palindrome("Нажал баклажан на кабан."));
+        assert!(!is_palindrome("A plan, a man, a canal: Panama!"));
+        assert!(!is_palindrome("Нажал баклажан на кабан."));
     }
 }
